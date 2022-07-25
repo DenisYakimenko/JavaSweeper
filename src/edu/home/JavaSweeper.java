@@ -3,6 +3,7 @@ package edu.home;
 import javax.swing.*;
 import java.awt.*;
 
+
 public class JavaSweeper extends JFrame {
 
     private final int COLS =15;
@@ -28,8 +29,10 @@ public class JavaSweeper extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                g.drawImage(getImage("bomb"),0,0,this);
-                g.drawImage(getImage("num1"),IMAGE_SIZE,0,this);
+                for(Box box: Box.values())// values перебирает все enum
+
+                g.drawImage(getImage(box.name().toLowerCase()),
+                        box.ordinal()*IMAGE_SIZE,0,this);//ordinal координата текущего объекта
 
             }
         };
