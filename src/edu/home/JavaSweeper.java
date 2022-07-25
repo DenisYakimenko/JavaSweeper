@@ -59,7 +59,8 @@ public class JavaSweeper extends JFrame {
 
     //метод ппоказывающий картинку
     private Image getImage(String name){
-     ImageIcon icon = new ImageIcon("res/img/"+name+".png");
-     return icon.getImage();
+        String filename = "img/"+name+".png"; //пометили папку res/img как корень ресурсов
+        ImageIcon icon = new ImageIcon(getClass().getResource(filename));
+        return icon.getImage();
     }
 }
