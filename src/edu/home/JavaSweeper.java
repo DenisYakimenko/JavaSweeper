@@ -18,6 +18,7 @@ public class JavaSweeper extends JFrame {
     //конструктор закрытия программы
     private JavaSweeper (){
 
+        setImages();
         initPanel();
         initFrame();
     }
@@ -31,7 +32,7 @@ public class JavaSweeper extends JFrame {
                 super.paintComponent(g);
                 for(Box box: Box.values())// values перебирает все enum
 
-                g.drawImage(getImage(box.name().toLowerCase()),
+                g.drawImage(box.image,
                         box.ordinal()*IMAGE_SIZE,0,this);//ordinal координата текущего объекта
 
             }
@@ -49,6 +50,11 @@ public class JavaSweeper extends JFrame {
         setResizable(false);//запрет на изменение размера формы
         pack();//заставляет сработать panel.setPreferredSize (new Dimension(500,300))
         setLocationRelativeTo(null);
+    }
+
+    private void setImages(){
+        for(Box box:Box.values()) //к каждому боксу присвоили картинку
+            box.image = getImage(box.name().toLowerCase());
     }
 
     //метод ппоказывающий картинку
