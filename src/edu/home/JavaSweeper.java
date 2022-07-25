@@ -25,6 +25,7 @@ public class JavaSweeper extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
+                g.drawImage(getImage(),0,0,this);
             }
         };
         panel.setPreferredSize(new Dimension(500,300));
@@ -38,5 +39,11 @@ public class JavaSweeper extends JFrame {
         setResizable(false);//запрет на изменение размера формы
         pack();//заставляет сработать panel.setPreferredSize (new Dimension(500,300))
         setLocationRelativeTo(null);
+    }
+
+    //метод ппоказывающий картинку
+    private Image getImage(){
+     ImageIcon icon = new ImageIcon("res/img/bomb.png");
+     return icon.getImage();
     }
 }
