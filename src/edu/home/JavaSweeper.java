@@ -5,18 +5,28 @@ import java.awt.*;
 
 public class JavaSweeper extends JFrame {
 
-    JPanel panel;
+   private JPanel panel;
     public static void main(String[] args) {
         new JavaSweeper();
 
     }
 
     //конструктор закрытия программы
-    public JavaSweeper (){
+    private JavaSweeper (){
 
+        initPanel();
+        initFrame();
+    }
+
+
+
+    private void initPanel() {
         panel = new JPanel();
         panel.setPreferredSize(new Dimension(500,300));
         add(panel);
+    }
+
+    private void initFrame() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sweeper");
         setVisible(true);
