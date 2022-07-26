@@ -20,5 +20,5 @@ public enum Box {
     BOMBED,
     NOBOMB;
 
-    public Image image;
+    public Object image;
 }

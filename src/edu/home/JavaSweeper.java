@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 
+
 public class JavaSweeper extends JFrame {
 
     private final int COLS =15;
@@ -30,11 +31,14 @@ public class JavaSweeper extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                for(Box box: Box.values())// values перебирает все enum
+                for (Box box : Box.values())// values перебирает все enum
+                {
+                    Coord coord = new Coord(box.ordinal() * IMAGE_SIZE, 0);
 
-                g.drawImage(box.image,
-                        box.ordinal()*IMAGE_SIZE,0,this);//ordinal координата текущего объекта
+                    g.drawImage((Image) box.image,
+                            coord.x, coord.y, this);//ordinal координата текущего объекта
 
+                }
             }
         };
         panel.setPreferredSize(new Dimension(
@@ -50,6 +54,7 @@ public class JavaSweeper extends JFrame {
         setResizable(false);//запрет на изменение размера формы
         pack();//заставляет сработать panel.setPreferredSize (new Dimension(500,300))
         setLocationRelativeTo(null);
+        setIconImage(getImage("icon"));
     }
 
     private void setImages(){
@@ -59,8 +64,8 @@ public class JavaSweeper extends JFrame {
 
     //метод ппоказывающий картинку
     private Image getImage(String name){
-        String filename = "img/"+name+".png"; //пометили папку res/img как корень ресурсов
-        ImageIcon icon = new ImageIcon(getClass().getResource(filename));
+      //  String filename = "img/"+name+".png"; //пометили папку res/img как корень ресурсов
+        ImageIcon icon = new ImageIcon("res/img/"+name+".png");
         return icon.getImage();
     }
 }
