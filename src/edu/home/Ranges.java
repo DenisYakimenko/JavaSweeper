@@ -1,13 +1,13 @@
 package edu.home;
 
-public class Ranges
+public class Ranges //класс задающий размеры поля
 {
-    private Coord size;
-    public void setSize(Coord size){
-        this.size = size;
+    private static Coord size;
+    public static void setSize(Coord _size){
+        size = _size;
     }
 
-    public Coord getSize(){
+    public static Coord getSize(){
         return  size;
 
     }

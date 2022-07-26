@@ -19,6 +19,7 @@ public class JavaSweeper extends JFrame {
     //конструктор закрытия программы
     private JavaSweeper (){
 
+        Ranges.setSize(new Coord(COLS, ROWS));
         setImages();
         initPanel();
         initFrame();
@@ -42,8 +43,8 @@ public class JavaSweeper extends JFrame {
             }
         };
         panel.setPreferredSize(new Dimension(
-                COLS*IMAGE_SIZE,
-                ROWS*IMAGE_SIZE));
+                Ranges.getSize().x *IMAGE_SIZE,
+                Ranges.getSize().y *IMAGE_SIZE));
         add(panel);
     }
 
