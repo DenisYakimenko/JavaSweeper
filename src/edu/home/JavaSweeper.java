@@ -3,10 +3,11 @@ package edu.home;
 import javax.swing.*;
 import java.awt.*;
 
-
+//1.22.49
 
 public class JavaSweeper extends JFrame {
 
+    private Game game;
     private final int COLS =9;
     private final int ROWS = 9;
     private final int IMAGE_SIZE = 50;//обозначили константой размер картинки
@@ -19,7 +20,7 @@ public class JavaSweeper extends JFrame {
     //конструктор закрытия программы
     private JavaSweeper (){
 
-        Ranges.setSize(new Coord(COLS, ROWS));
+        game = new Game(COLS,ROWS);
         setImages();
         initPanel();
         initFrame();
@@ -36,7 +37,7 @@ public class JavaSweeper extends JFrame {
                 {
 
                   //  g.drawImage((Image) Box.BOMB.image,
-                    g.drawImage((Image) Box.values()[(coord.x+coord.y) % Box.values().length].image,
+                    g.drawImage((Image) game.getBox(coord).image,
                             coord.x*IMAGE_SIZE, coord.y*IMAGE_SIZE, this);//ordinal координата текущего объекта
 
                 }
