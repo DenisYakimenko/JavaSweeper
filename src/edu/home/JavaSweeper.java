@@ -3,7 +3,7 @@ package edu.home;
 import javax.swing.*;
 import java.awt.*;
 
-//1.22.49
+//1.52.01
 
 public class JavaSweeper extends JFrame {
 
@@ -55,9 +55,9 @@ public class JavaSweeper extends JFrame {
         setTitle("Sweeper");
         setVisible(true);
         setResizable(false);//запрет на изменение размера формы
-        pack();//заставляет сработать panel.setPreferredSize (new Dimension(500,300))
         setLocationRelativeTo(null);
         setIconImage(getImage("icon"));
+        pack();//заставляет сработать panel.setPreferredSize (new Dimension(500,300))
     }
 
     private void setImages(){
