@@ -8,10 +8,11 @@ import java.awt.*;
 public class JavaSweeper extends JFrame {
 
     private Game game;
+    private JPanel panel;
     private final int COLS =9;
     private final int ROWS = 9;
+    private final int BOMBS = 10;
     private final int IMAGE_SIZE = 50;//обозначили константой размер картинки
-    private JPanel panel;
     public static void main(String[] args) {
         new JavaSweeper();
 
@@ -20,7 +21,7 @@ public class JavaSweeper extends JFrame {
     //конструктор закрытия программы
     private JavaSweeper (){
 
-        game = new Game(COLS,ROWS);
+        game = new Game(COLS,ROWS,BOMBS);
         game.start();
         setImages();
         initPanel();
