@@ -15,6 +15,7 @@ class Bomb
     void start()
     {
         bombMap = new Matrix(Box.ZERO);
+        for (int j = 0; j< totalBombs; j++)
         placeBomb();
     }
 
@@ -27,5 +28,7 @@ class Bomb
     {
         Coord coord = Ranges.getRandomCoord();
         bombMap.set(coord,Box.BOMB);
+        for (Coord around:Ranges.getCoordsAround(coord))
+            bombMap.set(around,Box.NUM1);
     }
 }
