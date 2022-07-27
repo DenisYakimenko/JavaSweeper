@@ -32,12 +32,12 @@ public class JavaSweeper extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                for (Box box : Box.values())// values перебирает все enum
+                for (Coord coord:Ranges.getAllCoords())
                 {
-                    Coord coord = new Coord(box.ordinal() * IMAGE_SIZE, 0);
 
-                    g.drawImage((Image) box.image,
-                            coord.x, coord.y, this);//ordinal координата текущего объекта
+                  //  g.drawImage((Image) Box.BOMB.image,
+                    g.drawImage((Image) Box.values()[(coord.x+coord.y) % Box.values().length].image,
+                            coord.x*IMAGE_SIZE, coord.y*IMAGE_SIZE, this);//ordinal координата текущего объекта
 
                 }
             }
