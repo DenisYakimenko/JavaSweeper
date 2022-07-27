@@ -2,7 +2,7 @@ package edu.home;
 
 public class Game
 {
-    Bomb bomb;
+    private Bomb bomb;
     public Game(int cols, int rows, int bombs){
         Ranges.setSize(new Coord(cols,rows));
         bomb = new Bomb(bombs);

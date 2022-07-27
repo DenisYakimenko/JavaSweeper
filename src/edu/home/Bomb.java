@@ -1,5 +1,7 @@
 package edu.home;
 
+import java.util.Random;
+
 class Bomb
 {
     private Matrix bombMap;
@@ -23,6 +25,7 @@ class Bomb
 
     private void placeBomb()
     {
-        bombMap.set(new Coord(4,4),Box.BOMB);
+        Coord coord = Ranges.getRandomCoord();
+        bombMap.set(coord,Box.BOMB);
     }
 }
