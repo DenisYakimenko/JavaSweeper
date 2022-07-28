@@ -33,7 +33,8 @@ class Bomb
 
     private void placeBomb()
     {
-        while (true) {
+        while (true)
+        {
             Coord coord = Ranges.getRandomCoord();
             if (Box.BOMB == bombMap.get(coord))
                 continue;

@@ -15,7 +15,16 @@ public class Game
        flag.start();
     }
 
-    public Box getBox(Coord coord){
-        return flag.get(coord);
+    public Box getBox(Coord coord)
+    {
+        if (flag.get(coord)== Box.OPENED)
+        return bomb.get(coord);
+        else
+            return flag.get(coord);
+    }
+
+    public void pressLeftButton(Coord coord)
+    {
+        flag.setOpenedToBox(coord);
     }
 }

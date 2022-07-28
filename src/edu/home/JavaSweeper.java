@@ -2,6 +2,8 @@ package edu.home;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 //2.30.01
 
@@ -36,15 +38,24 @@ public class JavaSweeper extends JFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 for (Coord coord:Ranges.getAllCoords())
-                {
 
                   //  g.drawImage((Image) Box.BOMB.image,
                     g.drawImage((Image) game.getBox(coord).image,
                             coord.x*IMAGE_SIZE, coord.y*IMAGE_SIZE, this);//ordinal координата текущего объекта
 
-                }
             }
         };
+        panel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                int x = e.getX()/IMAGE_SIZE;
+                int y = e.getY()/IMAGE_SIZE;
+                Coord coord = new Coord(x,y);
+                if (e.getButton()== MouseEvent.BUTTON1)//смотрит координаты мышки
+                    game.pressLeftButton (coord);// срабатывает нажатие кнопки и открывает клетку
+                panel.repaint();
+            }
+        });
         panel.setPreferredSize(new Dimension(
                 Ranges.getSize().x *IMAGE_SIZE,
                 Ranges.getSize().y *IMAGE_SIZE));
