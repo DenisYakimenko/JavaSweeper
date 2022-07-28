@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-//2.30.01
+//3.01.01
 
 public class JavaSweeper extends JFrame {
 
@@ -53,6 +53,10 @@ public class JavaSweeper extends JFrame {
                 Coord coord = new Coord(x,y);
                 if (e.getButton()== MouseEvent.BUTTON1)//смотрит координаты мышки
                     game.pressLeftButton (coord);// срабатывает нажатие кнопки и открывает клетку
+                if (e.getButton()== MouseEvent.BUTTON3)
+                    game.pressRightButton (coord);
+                if (e.getButton()== MouseEvent.BUTTON2)
+                    game.start();
                 panel.repaint();
             }
         });
@@ -67,9 +71,9 @@ public class JavaSweeper extends JFrame {
         setTitle("Sweeper");
         setVisible(true);
         setResizable(false);//запрет на изменение размера формы
-        setLocationRelativeTo(null);
         setIconImage(getImage("icon"));
         pack();//заставляет сработать panel.setPreferredSize (new Dimension(500,300))
+        setLocationRelativeTo(null);
     }
 
     private void setImages(){
